@@ -8,7 +8,7 @@ class TestBackgroundProcesses(unittest.TestCase):
     def test_basic(self):
         def server_online_at(port):
             try:
-                resp = requests.get('http://localhost:30001')
+                resp = requests.get('http://localhost:%s' % port)
                 return resp.status_code == 200
             except requests.ConnectionError:
                 return False
