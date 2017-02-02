@@ -1,5 +1,7 @@
 Simple API at running multiple processes in background.
 
+Proof of concept quality level.
+
 Usage:
 
 ```python
