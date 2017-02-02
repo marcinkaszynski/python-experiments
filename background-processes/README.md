@@ -24,6 +24,9 @@ Wishlist:
 ```python
 with bg.shell_cmds(['python3 -m http.server 7890',
                     'redis-server -p 1234'],
-                    wait_for_ports=[7890, 1234]):
-    [...]
+                    wait_for_ports=[7890, 1234]) as procs:
+
+    procs.kill()
+    print("http server stdout:\n%s\n" % procs[0].stdout)
+    print("http server stderr:\n%s\n" % procs[0].stderr)
 ```
