@@ -30,3 +30,13 @@ with bg.shell_cmds(['python3 -m http.server 7890',
     print("http server stdout:\n%s\n" % procs[0].stdout)
     print("http server stderr:\n%s\n" % procs[0].stderr)
 ```
+
+Maybe:
+
+```python
+with bg.run([Shell('python3 -m http.server 7890'),
+             Exec('/usr/bin/redis-server', '-p', '1234'),
+             some_other_callable],
+             wait_for_ports=[7890, 1234]) as procs:
+    [...]
+```
